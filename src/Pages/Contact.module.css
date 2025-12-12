@@ -1,0 +1,191 @@
+/* CONTACT FORM SECTION */
+
+
+.contactTitle {
+  font-size: 60px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.contactFade {
+  color: rgba(255, 255, 255, 0.1);
+  display: block;
+  margin-top: -20px;
+}
+
+.contactForm {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.head{
+  color: #f76732;
+}
+
+ .pro{
+    color: #353334;
+}
+
+.inputRow {
+  display: flex;
+  gap: 20px;
+}
+
+.inputGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.inputGroup label {
+  font-size: 12px;
+  font-family:sans-serif ;
+
+  margin-bottom: 8px;
+  color: rgb(136, 136, 136)
+;
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: #2a2a2a;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+}
+
+.inputGroup input{
+    width: 90%;
+}
+
+.inputGroup textarea {
+    font-family: inherit;
+     width: 
+     95%;
+}
+
+.inputGroup input::placeholder,
+.inputGroup textarea::placeholder {
+  color: #888;
+}
+
+.inputGroup select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+.inputGroup textarea {
+  height: 130px;
+  resize: none;
+}
+
+.submitBtn {
+  background-color: #ff6b35;
+  color: #fff;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submitBtn:hover {
+  background-color: #e65a29;
+}
+
+@media (max-width: 768px) {
+  .inputRow {
+    flex-direction: column;
+  }
+
+  .contactTitle {
+    font-size: 42px;
+  }
+
+  .contactFade {
+    font-size: 40px;
+  }
+}
+
+.logobox{
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 18px;
+}
+
+
+.contactSection{
+    align-items: start;
+    justify-content: start;
+    text-align: right;
+    margin-right: 200px;
+    width: 620px;  
+}
+
+
+@keyframes spin{
+  from {translate: 0;}
+  to {translate: -100%;}
+}
+.submitBtn {
+  background-color: #ff6b35;
+  color: #fff;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitBtn:hover {
+  background-color: #e65a29;
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* SPINNER LOADER */
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,211 @@
+.maincontainer{
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 125px;
+    position: sticky;
+    z-index: 1000;}
+
+.recent{
+    margin-top: 140px;
+}
+
+ .pro{
+    color: #353334;
+}
+ h2{
+   color: white;
+   font-family: sans-serif;
+   font-weight: 750%;
+   font-size: 85px;
+   line-height: 15px;
+   letter-spacing: -0.02em;
+   text-align: start;
+
+}
+.expone .exphead{
+    font-family: poppins, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    margin-top: 10px;
+    line-height: 2px;
+    text-align: left;
+
+  
+}.expone .exppara{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(153, 143, 143);
+    margin-top: 5px;
+    line-height: 22px;
+    text-align: left;
+
+}
+
+.expone .expnum{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(153, 143, 143);
+    margin-top: 5px;
+    line-height: 22px;
+    text-align: left;
+
+}
+
+.expone{
+  width: 596px;
+    height: 144px;
+    padding-right:20px;
+    padding-left: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+   
+  
+    margin-top: 20px;
+    border-radius: 16px;
+    opacity: 1;
+}
+
+.expone:hover{
+   background-color: rgba(255, 255, 255, 0.03);
+   cursor: pointer;
+}
+
+
+/* CONTACT FORM SECTION */
+
+
+.contactTitle {
+  font-size: 60px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.contactFade {
+  color: rgba(255, 255, 255, 0.1);
+  display: block;
+  margin-top: -20px;
+}
+
+.contactForm {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.inputRow {
+  display: flex;
+  gap: 20px;
+}
+
+.inputGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.inputGroup label {
+  font-size: 12px;
+  font-family:sans-serif ;
+
+  margin-bottom: 8px;
+  color: rgb(136, 136, 136)
+;
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: #2a2a2a;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+}
+
+.inputGroup input{
+    width: 90%;
+}
+
+.inputGroup textarea {
+    font-family: inherit;
+     width: 
+     95%;
+}
+
+.inputGroup input::placeholder,
+.inputGroup textarea::placeholder {
+  color: #888;
+}
+
+.inputGroup select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+.inputGroup textarea {
+  height: 130px;
+  resize: none;
+}
+
+.submitBtn {
+  background-color: #ff6b35;
+  color: #fff;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submitBtn:hover {
+  background-color: #e65a29;
+}
+
+@media (max-width: 768px) {
+  .inputRow {
+    flex-direction: column;
+  }
+
+  .contactTitle {
+    font-size: 42px;
+  }
+
+  .contactFade {
+    font-size: 40px;
+  }
+}
+
+.logobox{
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 18px;
+}
+
+
+.contactSection{
+    align-items: start;
+    justify-content: start;
+    text-align: right;
+    margin-right: 200px;
+}

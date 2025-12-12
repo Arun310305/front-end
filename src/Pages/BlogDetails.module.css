@@ -1,0 +1,101 @@
+.blogWrapper {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}
+
+.blogContainer {
+  max-width: 900px;
+  width: 100%;
+  background: transparent;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: whitesmoke;
+  line-height: 1.3;
+}
+
+.date {
+  font-size: 0.95rem;
+  color: #f46c38;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgb(153, 143, 143);
+  text-align: justify;
+  background: transparent;
+  font-family: "Poppins", sans-serif;
+}
+
+.content p {
+  margin-bottom: 1.4rem;
+}
+
+/* Magazine-style floating image */
+.blogImage {
+  float: right;
+  width: 320px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 0 1.5rem 1.5rem;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.blogImage:hover {
+  transform: scale(1.03);
+}
+
+/* Back Button */
+.backBtn {
+  position: absolute;
+  left: 40px;
+  top: 30px;
+  background: transparent;
+  color: #f46c38;
+  border: 2px solid #f46c38;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.backBtn:hover {
+  color: #f46d388d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .blogImage {
+    float: none;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    max-width: 100%;
+    width: 90%;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .date {
+    text-align: center;
+  }
+
+  .content {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,201 @@
+.blogcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 620px;
+}
+
+ .pro{
+    color: #353334;
+}
+
+/* Blog card same as project card */
+.blogcard {
+  width: 596px;
+  height: 144px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  background: transparent;
+  border-radius: 16px;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.blogcard:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+}
+
+/* Blog Image same size as project image */
+.blogimg img {
+  width: 134px;
+  height: 130px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Blog text section */
+.blogtxt {
+  text-align: left;
+}
+
+.bloghead {
+  font-family: poppins, sans-serif;
+  font-weight: 600;
+  font-size: 23px;
+  color: white;
+  margin-top: 10px;
+  line-height: 24px;
+}
+
+.blogdes {
+  font-family: poppins, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(153, 143, 143);
+  margin-top: 5px;
+  line-height: 22px;
+}
+
+.blogdate {
+  font-family: poppins, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(136, 136, 136);
+  margin-top: 8px;
+}
+
+/* Mobile responsive (copy from projects) */
+@media (max-width: 768px) {
+  .blogcard {
+    width: 100%;
+    max-width: 344px;
+    height: auto;
+    flex-direction: column;
+    padding: 16px;
+    gap: 15px;
+  }
+
+  .blogimg img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
+
+  .blogtxt {
+    text-align: center;
+  }
+
+  .bloghead {
+    font-size: 20px;
+  }
+
+  .blogdes {
+    font-size: 14px;
+  }
+
+  .blogdate {
+    font-size: 13px;
+  }
+}
+.blogcardWrapper {
+  width: 600px;
+  position: relative;
+  position: relative;
+  display: block;
+  z-index: 1;
+}
+
+/* Expand box OVERLAY below card */
+.dropdown {
+  width: 100%;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 14px;
+  margin-top: 8px;
+
+  /* HIDDEN INITIALLY */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+  padding: 0 20px;
+}
+
+/* SHOW DROPDOWN */
+.showDrop {
+  max-height: 600px;
+  opacity: 1;
+  padding: 20px;
+}
+
+/* Image inside dropdown */
+.dropImage {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.dropText {
+  color: rgb(190, 190, 190);
+  font-size: 16px;
+  line-height: 1.7;
+}
+/* GRID LAYOUT DROPDOWN */
+.dropdown {
+  width: 100%;
+  background: rgba(20, 20, 20, 0.95);
+  border-radius: 14px;
+  margin-top: 8px;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0;
+
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s;
+
+  display: grid;
+  grid-template-columns: 1fr 200px; /* text | image */
+  grid-template-rows: auto auto;    /* row 1 text+image, row 2 fullwidth text */
+  gap: 20px;
+}
+
+/* ON EXPAND */
+.showDrop {
+  max-height: 1000px;
+  opacity: 1;
+  padding: 20px;
+}
+
+/* RIGHT COLUMN IMAGE */
+.dropImage {
+  width: 200px;
+  border-radius: 10px;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  justify-self: end;
+}
+
+/* LEFT SIDE TEXT */
+.dropText {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  color: #d0d0d0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* FULL WIDTH ROW BELOW IMAGE */
+.dropTextFull {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  color: #d0d0d0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+ 

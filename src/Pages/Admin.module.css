@@ -1,0 +1,218 @@
+.adminContainer {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #151312;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.formSection {
+  flex: 1;
+  background-color: #1f1d1b;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formSection h1 {
+  font-size: 2rem;
+  color: #f46c38;
+}
+
+.formSection h2 {
+  font-size: 1.4rem;
+  color: #f46c38;
+  margin: 10px 0;
+}
+
+.formSection form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formSection input,
+.formSection textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #2a2725;
+  color: #fff;
+  outline: none;
+  font-size: 1rem;
+}
+
+.formSection input:focus,
+.formSection textarea:focus {
+  border-color: #f46c38;
+  box-shadow: 0 0 5px #f46c38;
+}
+
+.formSection button {
+  padding: 12px;
+  background-color: #f46c38;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #151312;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.formSection button:hover {
+  background-color: #e85c25;
+}
+
+.listSection {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #1f1d1b;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  color: #f46c38;
+  margin: 5px 0;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.card a {
+  color: #f46c38;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.cardActions {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #f46c38;
+  transition: color 0.2s ease;
+}
+
+.icon:hover {
+  color: #e85c25;
+}
+
+@media (max-width: 1000px) {
+  .adminContainer {
+    flex-direction: column;
+  }
+
+  .formSection, .listSection {
+    max-width: 100%;
+  }
+}
+
+
+.readMoreBtn {
+  background: none;
+  border: none;
+  color: #f46c38;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  text-align: left;
+  padding: 0;
+}
+
+.readMoreBtn:hover {
+  color: #e85c25;
+  text-decoration: underline;
+}
+
+
+.icon {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  color: #e85c25;
+}
+
+/* Popup modal */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.popup {
+  background-color: #1f1d1b;
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+}
+
+.popupActions {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.popupActions button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #f46c38;
+  color: #151312;
+  transition: all 0.3s ease;
+}
+
+.popupActions button:hover {
+  background-color: #e85c25;
+}

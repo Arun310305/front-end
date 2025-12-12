@@ -1,0 +1,271 @@
+.maincontainer{
+    align-items: center;
+    text-align: center;
+    margin-left: -28px;
+    margin-top: 125px;
+    position: sticky;
+    z-index: 1000;
+    padding-left: 20px;
+}
+
+.maincontainer h1{
+   color: rgb(134, 21, 21);
+   font-family: sans-serif;
+   font-weight: 900%;
+   font-size: 100px;
+   line-height: 35px;
+   letter-spacing: -0.02em;
+   margin-right:90px ;
+   text-align: start;
+
+}
+
+.maincontainer h2{
+   color: white;
+   font-family: sans-serif;
+   font-weight: 750%;
+   font-size: 85px;
+   line-height: 15px;
+   letter-spacing: -0.02em;
+
+}
+
+
+
+.maincontainer .recent{
+    text-align: left;
+    text-align: start;
+}
+
+.maincontainer .Devtxt{
+    font-size: 18px;
+    color: 
+rgb(153, 143, 143);
+    font-family:sans-serif;
+    text-align: left;
+    font-weight: 400;
+    line-height: 25px;
+    margin-top: -30px;
+    letter-spacing: -0.00001em;
+
+}
+
+
+.maincontainer .recent{
+    margin-top: 140px;
+}
+
+.maincontainer .Dev{
+    color: #353334;
+    margin-right: 220px;
+}
+
+
+.maincontainer .pro{
+    color: #353334;
+}
+.maincontainer .numdata{
+    display: flex;
+    flex-direction:row;
+    color: white;
+    margin-top: 60px;
+    width: 450px;
+    justify-content: space-between;
+
+}
+
+
+.maincontainer .numdata .exp .expyr,.maincontainer .numdata .projects .projcount
+, .maincontainer .numdata .clients .clientcnt{
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: sans-serif;
+    font-size: 73px;
+    font-weight: 600;
+    font-family: sans-serif;
+    line-height:96px ;
+}
+
+
+.maincontainer .numdata .exp .exptxt,.maincontainer .numdata .projects .projtxt
+, .maincontainer .numdata .clients .clienttxt{
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(153, 143, 143);
+    margin-top: 1px;
+    line-height: 19px;
+    text-align: left;
+}
+
+
+.maincontainer .colorcards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 60px;
+    width: 90%;
+    gap: 0px;
+
+}
+
+.maincontainer .colorcards .orangecard{
+    width: 350px;
+    height: 219px;
+    background-color: #f46c38;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1px;
+}
+
+.maincontainer .colorcards .greencard{
+     width: 350px;
+    height: 219px;
+    background-color: greenyellow;
+    border-radius: 10px;
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 1px;
+    
+   
+}
+
+.maincontainer .colorcards .orangecard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0px;
+   
+}
+
+.maincontainer .colorcards .orangecard .db{
+   margin-right: 270px;
+   margin-top: 4
+   px;
+}
+
+.maincontainer .colorcards .greencard .ui{
+    margin-right: 270px;
+    margin-bottom: 34px;
+
+}
+.maincontainer .colorcards .orangecard .orangetxt .paratxt{
+    font-family: sans-serif;
+    font-weight: 550;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
+    line-height: 26px;
+    text-align: left;
+    margin-left: 20px;
+    
+
+}
+
+.maincontainer .colorcards .greencard .greentxt .paratxtwo{
+    font-family: sans-serif;
+    font-weight: 550;
+    font-size: 24px;
+    color:black;
+    margin-top: 5px;
+    line-height: 26px;
+    text-align: left;
+    margin-left: 20px;
+
+}
+
+.maincontainer
+.colorcards
+.orangecard
+.orangebtn{
+    height: 32px;
+    width: 32px;
+    background-color: #f46c38;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    display: block;
+    margin-left:290px ;
+   margin-right: 40px;
+        
+    
+    padding: 2px;
+}
+
+.maincontainer
+.colorcards
+.greencard
+.greenbtn{
+    height: 32px;
+    width: 32px;
+    background-color: greenyellow;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    display: block;
+    margin-left:291px ;
+     
+    padding: 2px;
+}
+
+.maincontainer
+.colorcards
+.orangecard
+.orangebtn svg{
+    
+    margin-left: 5px;
+    margin-top: 5px;
+align-items: center;}
+
+.maincontainer
+.colorcards
+.greencard
+.greenbtn svg{
+    
+    margin-left: 2px;
+    margin-top:3px;
+align-items: center;}
+
+
+.maincontainer
+.colorcards
+.orangecard
+.orangebtn:hover svg{
+   
+    stroke: #f46c38;
+}
+
+.maincontainer
+.colorcards
+.greencard
+.greenbtn:hover svg{
+   
+    stroke: greenyellow;
+}
+.maincontainer
+.colorcards
+.orangecard
+.orangebtn:hover{
+    background-color: white;
+    border-color: #f46c38;
+    color: #f46c38;
+    stroke: #f46c38;
+}
+
+
+.maincontainer
+.colorcards
+.greencard
+.greenbtn:hover{
+    background-color:black;
+    border-color: greenyellow;
+    color: greenyellow;
+    stroke: greenyellow;
+}

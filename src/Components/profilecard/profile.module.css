@@ -1,0 +1,138 @@
+.maincontainer {
+    position: sticky;
+    z-index: 1000;
+    top: 10px; 
+   /*  left: 180px;  */
+    /* height: 640px; */
+    width: 344px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 150px;
+}
+.imgcontainer {
+  
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  
+}
+.image {
+   height: 284px;
+   width: 240px;
+   border-radius: 20px;
+    margin-top: -80px;
+}
+
+.namecontainer p {
+    font-size: 36px;
+    font-weight: 790;
+    
+    letter-spacing: -0.02em;
+    font-family: sans-serif;
+    margin-top: 20px;
+}
+
+.description p {
+    font-size: 18px;
+    font-weight: 550;
+    font-family: sans-serif;
+    line-height: 110%;
+    color: #6a6b6e;
+    margin-top: -60px;
+    padding: 10px;
+}
+
+
+
+.curvedashline svg {
+   margin-top: -70px;
+   margin-right: 190px;
+
+}
+
+
+.curvedashlineone  svg{
+    margin-top: -79px;
+   margin-left: -270px;
+}
+
+.socialmedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: -20px;
+}
+
+
+.socialmedia img {
+    height: 20px;
+    width: 20px;
+    margin: 0 18px ;
+    margin-top: 8px;
+}
+
+.socialmedia div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    background-color:transparent;
+    padding: 2px;
+    padding-bottom: 7px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.socialmedia div:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+    .maincontainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 344px;
+        height: auto;
+        /* max-height: 90vh; */
+        overflow-y: auto;
+        z-index: 1000; 
+    }
+}
+
+/* For smaller mobile devices */
+@media (max-width: 480px) {
+    .maincontainer {
+        width: 95%;
+        max-width: 344px;
+    }
+    
+    .image {
+        height: 240px;
+        width: 200px;
+    }
+    
+    .namecontainer p {
+        font-size: 28px;
+    }
+    
+    .description p {
+        font-size: 16px;
+        margin-top: -50px;
+    }
+    
+    .curvedashline svg {
+        margin-right: 150px;
+    }
+    
+    .curvedashlineone svg {
+        margin-left: -220px;
+    }
+}
