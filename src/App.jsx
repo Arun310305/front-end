@@ -4,7 +4,6 @@ import styles from "./App.module.css";
 
 import Nav from "./Components/Navbar/Nav";
 import Profile from "./Components/profilecard/profile";
-// import Home from "./Pages/Home";
 import Name from "./Pages/Name";
 import Projects from "./Pages/Projects";
 import Exp from "./Pages/Exp";
