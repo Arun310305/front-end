@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styles from "../Pages/Contact.module.css";
 
-const BASE_URL = "https://portfolio-backend-mauve-five.vercel.app";
+const BASE_URL = "https://backend-portfolio-ydkv.vercel.app";
+
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../Pages/Blogs.module.css";
 
-const BASE_URL = "https://portfolio-backend-mauve-five.vercel.app";
+const BASE_URL = "https://backend-portfolio-ydkv.vercel.app";
 
 function Blogs() {
   const [blogs, setBlogs] = useState([]);

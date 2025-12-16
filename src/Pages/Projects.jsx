@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from "../Pages/Projects.module.css";
 
 // 🔥 Single place to control backend URL
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://backend-portfolio-ydkv.vercel.app";
+
 
 function Projects() {
   const [projects, setProjects] = useState([]);

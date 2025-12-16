@@ -2,8 +2,7 @@ import styles from '../Pages/Name.module.css';
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-function Name() {
+function Home() {
 
    const [projects, setProjects] = useState([]);
   
@@ -144,4 +143,4 @@ function Name() {
     )
 }
 
-export default Name;
+export default Home ;

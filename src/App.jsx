@@ -13,8 +13,8 @@ import Admin from "./Pages/Admin";
 import BlogDetails from "./Pages/BlogDetails";
 import Contact from "./Pages/Contact";
 import Resume from "./Pages/Resume";
-import AdminLogin from "./Pages/AdminLogin";
-import Protected from "./Pages/Protected";
+//import AdminLogin from "./Pages/AdminLogin";
+//import Protected from "./Pages/Protected";
 
 
 function AppContent() {
@@ -32,16 +32,16 @@ function AppContent() {
       <Profile  />
       </div>
       <div className={styles.div2}>
-      <Name path="/name"/>
+      <Name path="/nam"/>
       <Projects path="/projects"/>
       <Exp path="/experience" />
       <Tools path="/tools"/>
       <Blogs />
     
       <Routes>
-        <Route path="/AdminLogin" element={< AdminLogin/>} />
+        
          <Route path="/blog/:id" element={<BlogDetails />} />
-        <Route path="/Admin" element={<Protected element={<Admin />} />}/>
+        <Route path="/Admin" element={<Admin />} />
         <Route path="/resume" element={<Resume />} />
 
       </Routes>

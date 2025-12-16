@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "../Pages/BlogDetails.module.css";
 
-const BASE_URL = "http://localhost:5000"; // 🔥 Change here during deploy
+const BASE_URL = "https://backend-portfolio-ydkv.vercel.app"; // 🔥 Change here during deploy
 
 function BlogDetails() {
   const { id } = useParams();
