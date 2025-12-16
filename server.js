@@ -18,7 +18,7 @@ cloudinary.config({
 });
 
 /* ------------------------------------------------------
-   MULTER → CLOUDINARY DIFFERENT FOLDERS
+   MULTER → CLOUDINARY STORAGE
 ------------------------------------------------------ */
 const blogStorage = new CloudinaryStorage({
   cloudinary,
@@ -40,22 +40,35 @@ const uploadBlogImage = multer({ storage: blogStorage });
 const uploadProjectImage = multer({ storage: projectStorage });
 
 /* ------------------------------------------------------
-   EXPRESS SETUP
+   EXPRESS APP
 ------------------------------------------------------ */
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 /* ------------------------------------------------------
-   MONGO CONNECTION
+   MONGODB CONNECTION (SAFE FOR SERVERLESS)
 ------------------------------------------------------ */
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.log("❌ MongoDB Error:", err));
+let isConnected = false;
+
+async function connectDB() {
+  if (isConnected) return;
+  await mongoose.connect(process.env.MONGO_URI);
+  isConnected = true;
+  console.log("✅ MongoDB Connected");
+}
+
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    res.status(500).json({ message: "DB Connection Failed", error: err.message });
+  }
+});
 
 /* ------------------------------------------------------
-   BLOG MODEL
+   MODELS
 ------------------------------------------------------ */
 const blogSchema = new mongoose.Schema({
   title: String,
@@ -63,170 +76,105 @@ const blogSchema = new mongoose.Schema({
   image: String,
   date: String,
 });
-const Blog = mongoose.model("Blog", blogSchema);
+const Blog = mongoose.models.Blog || mongoose.model("Blog", blogSchema);
 
-/* ------------------------------------------------------
-   PROJECT MODEL
------------------------------------------------------- */
 const projectSchema = new mongoose.Schema({
   name: String,
   description: String,
   image: String,
   link: String,
 });
-const Project = mongoose.model("Project", projectSchema);
+const Project =
+  mongoose.models.Project || mongoose.model("Project", projectSchema);
 
 /* ------------------------------------------------------
-   DEFAULT ROUTE
+   ROUTES
 ------------------------------------------------------ */
 app.get("/", (req, res) => {
   res.send("Backend is running!");
 });
 
-
-/* ------------------------------------------------------
-   COMBINED API → Blogs + Projects
------------------------------------------------------- */
 app.get("/api/portfolio", async (req, res) => {
-  try {
-    const blogs = await Blog.find().sort({ _id: -1 });
-    const projects = await Project.find().sort({ _id: -1 });
+  const blogs = await Blog.find().sort({ _id: -1 });
+  const projects = await Project.find().sort({ _id: -1 });
 
-    res.json({
-      blogs,
-      projects,
-      totalBlogs: blogs.length,
-      totalProjects: projects.length,
-    });
-  } catch (err) {
-    res.status(500).json({
-      message: "Error fetching combined data",
-      error: err.message,
-    });
-  }
+  res.json({
+    blogs,
+    projects,
+    totalBlogs: blogs.length,
+    totalProjects: projects.length,
+  });
 });
 
-/* ------------------------------------------------------
-   BLOG ROUTES
------------------------------------------------------- */
+/* BLOG ROUTES */
 app.get("/api/blogs", async (req, res) => {
-  const blogs = await Blog.find().sort({ _id: -1 });
-  res.json(blogs);
+  res.json(await Blog.find().sort({ _id: -1 }));
 });
 
 app.post("/api/blogs", uploadBlogImage.single("image"), async (req, res) => {
-  try {
-    const { title, content } = req.body;
-    const image = req.file?.path || null;
+  const { title, content } = req.body;
 
-    const newBlog = new Blog({
-      title,
-      content,
-      image,
-      date: new Date().toDateString(),
-    });
+  const blog = await Blog.create({
+    title,
+    content,
+    image: req.file?.path || null,
+    date: new Date().toDateString(),
+  });
 
-    await newBlog.save();
-    res.status(201).json(newBlog);
-  } catch (err) {
-    res.status(500).json({ message: "Error creating blog", error: err.message });
-  }
+  res.status(201).json(blog);
 });
 
 app.put("/api/blogs/:id", uploadBlogImage.single("image"), async (req, res) => {
-  try {
-    const { title, content } = req.body;
-    const updateData = { title, content };
+  const updated = await Blog.findByIdAndUpdate(
+    req.params.id,
+    {
+      ...req.body,
+      ...(req.file?.path && { image: req.file.path }),
+    },
+    { new: true }
+  );
 
-    if (req.file?.path) updateData.image = req.file.path;
-
-    const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, updateData, {
-      new: true,
-    });
-
-    if (!updatedBlog) return res.status(404).json({ message: "Blog not found" });
-
-    res.json(updatedBlog);
-  } catch (err) {
-    res.status(500).json({ message: "Error updating blog", error: err.message });
-  }
+  res.json(updated);
 });
 
 app.delete("/api/blogs/:id", async (req, res) => {
-  try {
-    const deleted = await Blog.findByIdAndDelete(req.params.id);
-    if (!deleted) return res.status(404).json({ message: "Blog not found" });
-
-    res.json({ message: "Blog deleted successfully", deleted });
-  } catch (err) {
-    res.status(500).json({ message: "Error deleting blog", error: err.message });
-  }
+  await Blog.findByIdAndDelete(req.params.id);
+  res.json({ message: "Blog deleted" });
 });
 
-/* ------------------------------------------------------
-   PROJECT ROUTES
------------------------------------------------------- */
+/* PROJECT ROUTES */
 app.get("/api/projects", async (req, res) => {
-  const projects = await Project.find().sort({ _id: -1 });
-  res.json(projects);
+  res.json(await Project.find().sort({ _id: -1 }));
 });
 
 app.post("/api/projects", uploadProjectImage.single("image"), async (req, res) => {
-  try {
-    const { name, description, link } = req.body;
-    const image = req.file?.path || null;
+  const project = await Project.create({
+    ...req.body,
+    image: req.file?.path || null,
+  });
 
-    const newProject = new Project({
-      name,
-      description,
-      link,
-      image,
-    });
-
-    await newProject.save();
-    res.status(201).json(newProject);
-  } catch (err) {
-    res.status(500).json({ message: "Error creating project", error: err.message });
-  }
+  res.status(201).json(project);
 });
 
 app.put("/api/projects/:id", uploadProjectImage.single("image"), async (req, res) => {
-  try {
-    const { name, description, link } = req.body;
-    const updateData = { name, description, link };
+  const updated = await Project.findByIdAndUpdate(
+    req.params.id,
+    {
+      ...req.body,
+      ...(req.file?.path && { image: req.file.path }),
+    },
+    { new: true }
+  );
 
-    if (req.file?.path) updateData.image = req.file.path;
-
-    const updatedProject = await Project.findByIdAndUpdate(
-      req.params.id,
-      updateData,
-      { new: true }
-    );
-
-    if (!updatedProject)
-      return res.status(404).json({ message: "Project not found" });
-
-    res.json(updatedProject);
-  } catch (err) {
-    res.status(500).json({ message: "Error updating project", error: err.message });
-  }
+  res.json(updated);
 });
 
 app.delete("/api/projects/:id", async (req, res) => {
-  try {
-    const deleted = await Project.findByIdAndDelete(req.params.id);
-    if (!deleted)
-      return res.status(404).json({ message: "Project not found" });
-
-    res.json({ message: "Project deleted successfully", deleted });
-  } catch (err) {
-    res.status(500).json({ message: "Error deleting project", error: err.message });
-  }
+  await Project.findByIdAndDelete(req.params.id);
+  res.json({ message: "Project deleted" });
 });
 
 /* ------------------------------------------------------
-   START SERVER
+   EXPORT FOR VERCEL
 ------------------------------------------------------ */
-app.listen(5000, () =>
-  console.log("🚀 Server running at http://localhost:5000")
-);
+export default app;
