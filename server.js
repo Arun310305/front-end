@@ -219,7 +219,7 @@ app.delete("/api/projects/:id", async (req, res) => {
     if (!deleted)
       return res.status(404).json({ message: "Project not found" });
 
-    res.json({ message: "Project deleted successfully", deleted });
+    res.json({ message: "Project is deleted successfully", deleted });
   } catch (err) {
     res.status(500).json({ message: "Error deleting project", error: err.message });
   }
@@ -254,7 +254,7 @@ app.post("/api/contact", async (req, res) => {
 
     res.json({ success: true, message: "Message sent!" });
   } catch (err) {
-    res.status(500).json({ message: "Email error", error: err.message });
+    res.status(500).json({ message: "Email error ", error: err.message });
   }
 });
 
@@ -262,5 +262,5 @@ app.post("/api/contact", async (req, res) => {
    START SERVER
 ------------------------------------------------------ */
 app.listen(5000, () =>
-  console.log("🚀 Server is running at http://localhost:5000")
+  console.log("🚀 Server  running at http://localhost:5000")
 );
