@@ -227,7 +227,7 @@ app.delete("/api/projects/:id", async (req, res) => {
 
 /* ------------------------------------------------------
    CONTACT FORM (EMAIL)
------------------------------------------------------- */
+--------------------------------------------------- */
 app.post("/api/contact", async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -262,5 +262,5 @@ app.post("/api/contact", async (req, res) => {
    START SERVER
 ------------------------------------------------------ */
 app.listen(5000, () =>
-  console.log("🚀 Server running at http://localhost:5000")
+  console.log("🚀 Server is running at http://localhost:5000")
 );
